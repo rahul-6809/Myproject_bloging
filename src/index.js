@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }))
 mongoose.connect(MONGOOSE_CONNECTION,
     { useNewUrlParser: true }
 )
-    .then(() => console.log("connected"))
+    .then(() => console.log("Mongodb is connected"))
     .catch((err) => console.log(err.message))
 
 app.use('/', trafficPoint)
