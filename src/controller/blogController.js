@@ -38,7 +38,7 @@ const getBlog = async (req, res) => {
         if (!filterQueryPATH(queries)) return res.status(400).send({ status: false, message: 'Please provide valid query' })
         if (Object.keys(data).length > 0) {
             const { category, authorId, tags, subcategory } = req.query
-            if (isValidValue(author) && isValidObjectId(authorId)) {
+            if (isValidValue(authorId) && isValidObjectId(authorId)) {
                 filterQuery.authorId = authorId
             }
             if (isValidValue(category)) {
@@ -115,7 +115,6 @@ const deleteBlogById = async (req, res) => {
 
 const deleteBlogByQuery = async (req, res) => {
     try {
-    
 
         let data = req.query
         let id = req.authorId

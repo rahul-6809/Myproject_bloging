@@ -5,9 +5,9 @@ const { authorizationFuc, authorAuthorizationCheck, authorCheckerForBlog, verify
 
 router.post('/authors', createAuthor)
 router.post('/login', authorLogin)
-router.post('/blogs', authorizationFuc,authorCheckerForBlog, createBloggg)
+router.post('/blogs', authorizationFuc,authorCheckerForBlog, createBlog)
 router.get('/blogs', authorizationFuc, getBlog)
-router.put('/blogs/:blogId', authorizationFuc,authorAuthorizationCheck ,updateBloggg)
+router.put('/blogs/:blogId', authorizationFuc,authorAuthorizationCheck ,updateBlog)
 router.delete('/blogs/:blogId', authorizationFuc, deleteBlogById)
 router.delete('/blogs', verifyIdOfDeled,authorizationFuc,authorAuthorizationCheck, deleteBlogByQuery)
 
