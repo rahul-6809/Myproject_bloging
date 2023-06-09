@@ -1,5 +1,4 @@
-# Project1
-# Technetium
+
 
 Repository for backend cohort - Technetium
 

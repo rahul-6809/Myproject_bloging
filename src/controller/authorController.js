@@ -14,7 +14,7 @@ const createAuthor = async (req, res) => {
         if (!email) return res.status(400).send({ status: false, message: 'Please provide a Email Address' })
         if (!title) return res.status(400).send({ status: false, message: 'Please provide a title' })
         if (!validator.isEmail(email)) return res.status(400).send({ status: false, message: ' Provide a valid email address' })
-//         if (!validator.isStrongPassword(password)) return res.status(400).send({ status: false, message: ' Provide a strong password' })
+
         if (!arrTitle.includes(title)) return res.status(400).send({ status: false, message: `Provide a valid title that is titles ${arrTitle}` })
         else {
             const findAuthor = await authorModel.findOne({ email: email })
@@ -37,7 +37,7 @@ const authorLogin = async (req, res) => {
         const findAuthor = await authorModel.findOne({ email: email, password: password })
         if (!findAuthor) return res.status(401).send({ status: false, message: `${email} and ${password} does not exist` })
         else {
-            const token = jwt.sign({ authorId: findAuthor._id }, SECRETE_KEY)
+            const token = jwt.sign({ authorId: findAuthor._id }, SECRETE_KE)
             res.setHeader('x-api-key', token)
             return res.status(200).send({ status: true, data:{token : token}})
         }

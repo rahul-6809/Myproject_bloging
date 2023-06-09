@@ -38,7 +38,7 @@ const getBlog = async (req, res) => {
         if (!filterQueryPATH(queries)) return res.status(400).send({ status: false, message: 'Please provide valid query' })
         if (Object.keys(data).length > 0) {
             const { category, authorId, tags, subcategory } = req.query
-            if (isValidValue(authorId) && isValidObjectId(authorId)) {
+            if (isValidValue(author) && isValidObjectId(authorId)) {
                 filterQuery.authorId = authorId
             }
             if (isValidValue(category)) {
@@ -115,36 +115,7 @@ const deleteBlogById = async (req, res) => {
 
 const deleteBlogByQuery = async (req, res) => {
     try {
-        // const data = req.query
-        //         const authorIdFromToken = req.authorId
-        //         const filterQuery = { isDeleted: false, deletedAt: null }
-        //         if (!Object.keys(data).length > 0) return res.status(400).send({ status: false, message: 'Please provide At least one query string to search blog' })
-        //         const { authorId, tags, category, subcategory, isPublished } = data
-        //         if (isValidValue(authorId) && isValidObjectId(authorId)) {
-        //             filterQuery.authorId = autho        rId
-        //         }
-        //         if (isValidValue(category)) {
-        //             filterQuery.category = category
-        //         }
-        //         if (isValidValue(subcategory)) {
-        //             const subArr = subcategory.trim().split(',').map(subBlog => subBlog.trim())
-        //             filterQuery.subcategory = { $all: subArr }
-        //         }
-        //         if (isValidValue(tags)) {
-        //             const tagsArr = tags.trim().split(',').map(tag => tag.trim())
-        //             filterQuery.tags = { $all: tagsArr }
-        //         }
-        //         if (isValidValue(isPublished)) {
-        //             filterQuery.isPublished = isPublished
-        //         }
-        //         const blogs = await blogModel.find(filterQuery)
-        //         if (blogs.length === 0) return res.status(404).send({ status: false, message: "No Blog Found" })
-        //         const blogIdFromFilterQuery = blogs.filter(blog => {
-        //             if (blog.authorId.toString() === authorIdFromToken) return blog._id
-        //         })
-        //         if (blogIdFromFilterQuery.length === 0) return res.status(404).send({ status: false, message: "No Blog Found" });
-        //         const deleteBlog = await blogModel.updateMany({ _id: { $in: blogIdFromFilterQuery }, isDeleted: false }, { $set: { isDeleted: true, deletedAt: new Date() } })
-        //         res.status(200).send({ status: true, message: `${deleteBlog.modifiedCount} deleted successfully` })
+    
 
         let data = req.query
         let id = req.authorId
